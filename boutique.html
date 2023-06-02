@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js" defer></script>
+    <script src="./index.js" defer></script>
+    <script src="https://kit.fontawesome.com/d597b0dfb4.js" crossorigin="anonymous" defer></script>
+    <title>ChocoPap</title>
+</head>
+<body>
+    <header class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-2 col-md-1 mt-3">
+                <a href="index.html">
+                    <img class="img-fluid offset-6" src="images du projet fil rouge Choco-Pap/images/logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="col-md-11 d-flex justify-content-end align-items-center">
+                <nav class="navbar navbar-expand-md">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link text-white" href="index.html" title="Accueil">Accueil</a></li>
+                            <li class="nav-item"><a class="nav-link text-white" href="boutique.html" title="Boutique">Boutique</a></li>
+                        </ul>
+                        <div class="dropdown show">
+                            <a class="btn btn-transparent dropdown-toggle fa-solid fa-cart-shopping" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            </a>
+                            <div id="cartDropdown" class="dropdown-menu dropdown-menu-end pt-0" aria-labelledby="dropdownMenuLink">
+                                <div class="d-flex header-dropdown">
+                                  <button class="btn-close" aria-label="Close"></button>
+                                  <p>Panier</p>
+                                </div>
+                                <hr class="mt-0">
+                                <div id="cartItems">
+                                  <p>Votre panier est vide</p>
+                                </div>
+                                <div>
+                                  <p class="total-panier">Total : <span id="total"></span></p>
+                                  <button id="resetCartBtn">Réinitialiser le panier</button>
+                                  <button id="checkoutBtn">Valider le panier</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <hr class="mb-0">
+    </header>
+    <section>
+        <br>
+        <h1 class="text-center">BOUTIQUE</h1>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2">
+                    <aside>
+                        <div id="filtres">
+                            <h6 class="ms-2">Filtres</h6>
+                            <div class="d-md-none">
+                                <h5 class="ms-2 text-decoration-underline mb-3" data-bs-toggle="collapse"
+                                    data-bs-target="#categoriesForm" aria-expanded="false"
+                                    aria-controls="categoriesForm">
+                                    Catégories +
+                                </h5>
+                                <div class="collapse" id="categoriesForm">
+                                    <form class="form-check">
+                                        <input type="checkbox" id="option1" name="option1" value="Tous" data-categorie="Tous" onchange="gererFiltres()">
+                                        <label for="option1" class="form-label">Tous</label><br>
+                                        <input type="checkbox" id="option2" name="option2" value="White" data-categorie="White" onchange="gererFiltres()">
+                                        <label for="option2" class="form-label">Chocolat blanc</label><br>
+                                        <input type="checkbox" id="option3" name="option3" value="Milk" data-categorie="Milk" onchange="gererFiltres()">
+                                        <label for="option3" class="form-label">Chocolat au lait</label><br>
+                                        <input type="checkbox" id="option4" name="option4" value="Black" data-categorie="Black" onchange="gererFiltres()">
+                                        <label for="option4" class="form-label">Chocolat noir</label><br>
+                                        <input type="checkbox" id="option5" name="option5" value="Nuts" data-categorie="Nuts" onchange="gererFiltres()">
+                                        <label for="option5" class="form-label">Noix/Noisette</label><br>
+                                        <input type="checkbox" id="option6" name="option6" value="Fruits" data-categorie="Fruits" onchange="gererFiltres()">
+                                        <label for="option6" class="form-label">Fruits</label><br>
+                                        <input type="checkbox" id="option7" name="option7" value="Caramel" data-categorie="Caramel" onchange="gererFiltres()">
+                                        <label for="option7" class="form-label">Caramel</label><br>
+                                        <input type="checkbox" id="option8" name="option8" value="Liqueur" data-categorie="Liqueur" onchange="gererFiltres()">
+                                        <label for="option8" class="form-label mb-4">Liqueur</label><br>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="d-none d-md-block">
+                                <h5 class="ms-2 text-decoration-underline mb-3">Catégories</h5>
+                                <form class="form-check">
+                                    <input type="checkbox" id="option1" name="option1" value="Tous" data-categorie="Tous" onchange="gererFiltres()">
+                                    <label for="option1" class="form-label">Tous</label><br>
+                                    <input type="checkbox" id="option2" name="option2" value="White" data-categorie="White" onchange="gererFiltres()">
+                                    <label for="option2" class="form-label">Chocolat blanc</label><br>
+                                    <input type="checkbox" id="option3" name="option3" value="Milk" data-categorie="Milk" onchange="gererFiltres()">
+                                    <label for="option3" class="form-label">Chocolat au lait</label><br>
+                                    <input type="checkbox" id="option4" name="option4" value="Black" data-categorie="Black" onchange="gererFiltres()">
+                                    <label for="option4" class="form-label">Chocolat noir</label><br>
+                                    <input type="checkbox" id="option5" name="option5" value="Nuts" data-categorie="Nuts" onchange="gererFiltres()">
+                                    <label for="option5" class="form-label">Noix/Noisette</label><br>
+                                    <input type="checkbox" id="option6" name="option6" value="Fruits" data-categorie="Fruits" onchange="gererFiltres()">
+                                    <label for="option6" class="form-label">Fruits</label><br>
+                                    <input type="checkbox" id="option7" name="option7" value="Caramel" data-categorie="Caramel" onchange="gererFiltres()">
+                                    <label for="option7" class="form-label">Caramel</label><br>
+                                    <input type="checkbox" id="option8" name="option8" value="Liqueur" data-categorie="Liqueur" onchange="gererFiltres()">
+                                    <label for="option8" class="form-label mb-4">Liqueur</label><br>
+                                </form>
+                            </div>
+                            <div class="d-md-none">
+                                <h5 class="ms-2 text-decoration-underline" data-bs-toggle="collapse" data-bs-target="#prixForm" aria-expanded="false" aria-controls="prixForm">
+                                    Prix +
+                                </h5>
+                                <div class="collapse" id="prixForm">
+                                    <form class="form">
+                                        <div class="d-flex">
+                                            <label for="price-min" class="ms-2">Prix minimum </label>
+                                            <input type="number" class="form-control ms-4" id="price-min" name="price-min" oninput="gererFiltres()">
+                                        </div>
+                                        <div class="d-flex">
+                                            <label for="price-max" class="ms-2">Prix maximum </label>
+                                            <input type="number" class="form-control ms-4" id="price-max" name="price-max" oninput="gererFiltres()">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="d-none d-md-block">
+                                <h5 class="ms-2 text-decoration-underline">Prix</h5>
+                                <form class="form">
+                                    <div class="d-flex">
+                                        <label for="price-min" class="ms-2">Prix minimum </label>
+                                        <input type="number" class="form-control ms-4" id="price-min" name="price-min" oninput="gererFiltres()">
+                                    </div>
+                                    <div class="d-flex">
+                                        <label for="price-max" class="ms-2">Prix maximum </label>
+                                        <input type="number" class="form-control ms-4" id="price-max" name="price-max" oninput="gererFiltres()">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="d-md-none">
+                                <h5 class="ms-2 text-decoration-underline" data-bs-toggle="collapse" data-bs-target="#notesForm" aria-expanded="false" aria-controls="notesForm">
+                                    Notes +
+                                </h5>
+                                <div class="collapse" id="notesForm">
+                                    <form class="form">
+                                        <div class="d-flex">
+                                            <label for="note-min" class="ms-2">Note minimum </label>
+                                            <input type="number" class="form-control ms-4" id="note-min" name="note-min" oninput="gererFiltres()">
+                                        </div>
+                                        <div class="d-flex">
+                                            <label for="note-max" class="ms-2">Note maximum </label>
+                                            <input type="number" class="form-control ms-4" id="note-max" name="note-max" max="5" oninput="gererFiltres()">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="d-none d-md-block">
+                                <h5 class="ms-2 text-decoration-underline">Notes</h5>
+                                <form class="form">
+                                    <div class="d-flex">
+                                        <label for="note-min" class="ms-2">Note minimum </label>
+                                        <input type="number" class="form-control ms-4" id="note-min" name="note-min" oninput="gererFiltres()">
+                                    </div>
+                                    <div class="d-flex">
+                                        <label for="note-max" class="ms-2">Note maximum </label>
+                                        <input type="number" class="form-control ms-4" id="note-max" name="note-max" max="5" oninput="gererFiltres()">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+                <div class="col-md-10">
+                    <main class="container-fluid">
+                        <div class="row gy-3 gap-2" id="listeProduits">
+                            <div class="card col-12 col-md-6 col-lg-3 text-center" data-categorie="Tous Milk Nuts Fruits">
+                                <img src="images du projet fil rouge Choco-Pap/images/produit1.jpg" class="card-img-top mt-3" alt="Produit 1">
+                                <div class="card-body">
+                                  <h5 class="card-title">Produit 1</h5>
+                                  <p class="card-text" data-prix="1" data-note="4.5">1€ <br>Note : 4,5</p>
+                                  <button class="btn shadow-bottom-right addToCartBtn" data-product-id="1" data-product-name="Produit 1" data-product-price="1"data-product-image="images du projet fil rouge Choco-Pap/images/produit1.jpg">Ajouter au panier</button>
+                                </div>
+                              </div>
+                              <div class="card col-12 col-md-6 col-lg-3 text-center" data-categorie="Tous Milk Caramel">
+                                <img src="images du projet fil rouge Choco-Pap/images/produit2.jpg" class="card-img-top mt-3" alt="Produit 2">
+                                <div class="card-body">
+                                  <h5 class="card-title">Produit 2</h5>
+                                  <p class="card-text" data-prix="2" data-note="3.5">2€ <br>Note : 3,5</p>
+                                  <button class="btn shadow-bottom-right addToCartBtn" data-product-id="2" data-product-name="Produit 2" data-product-price="2"data-product-image="images du projet fil rouge Choco-Pap/images/produit2.jpg">Ajouter au panier</button>
+                                </div>
+                              </div>
+                              <div class="card col-12 col-md-6 col-lg-3 text-center" data-categorie="Tous Milk Liqueur">
+                                <img src="images du projet fil rouge Choco-Pap/images/produit3.jpg" class="card-img-top mt-3" alt="Produit 3">
+                                <div class="card-body">
+                                  <h5 class="card-title">Produit 3</h5>
+                                  <p class="card-text" data-prix="3" data-note="4.9">3€ <br>Note : 4,9</p>
+                                  <button class="btn shadow-bottom-right addToCartBtn" data-product-id="3" data-product-name="Produit 3" data-product-price="3"data-product-image="images du projet fil rouge Choco-Pap/images/produit3.jpg">Ajouter au panier</button>
+                                </div>
+                              </div>
+                              <div class="card col-12 col-md-6 col-lg-3 text-center" data-categorie="Tous White Fruits">
+                                <img src="images du projet fil rouge Choco-Pap/images/produit4.jpg" class="card-img-top mt-3" alt="Produit 4">
+                                <div class="card-body">
+                                  <h5 class="card-title">Produit 4</h5>
+                                  <p class="card-text" data-prix="4" data-note="4">4€ <br>Note : 4</p>
+                                  <button class="btn shadow-bottom-right addToCartBtn" data-product-id="4" data-product-name="Produit 4" data-product-price="4"data-product-image="images du projet fil rouge Choco-Pap/images/produit4.jpg">Ajouter au panier</button>
+                                </div>
+                              </div>
+                              <div class="card col-12 col-md-6 col-lg-3 text-center" data-categorie="Tous White Nuts">
+                                <img src="images du projet fil rouge Choco-Pap/images/produit5.jpg" class="card-img-top mt-3" alt="Produit 5">
+                                <div class="card-body">
+                                  <h5 class="card-title">Produit 5</h5>
+                                  <p class="card-text" data-prix="5" data-note="5">5€ <br>Note : 5</p>
+                                  <button class="btn shadow-bottom-right addToCartBtn" data-product-id="5" data-product-name="Produit 5" data-product-price="5"data-product-image="images du projet fil rouge Choco-Pap/images/produit5.jpg">Ajouter au panier</button>
+                                </div>
+                              </div>
+                              <div class="card col-12 col-md-6 col-lg-3 text-center" data-categorie="Tous White Milk">
+                                <img src="images du projet fil rouge Choco-Pap/images/produit6.jpg" class="card-img-top mt-3" alt="Produit 6">
+                                <div class="card-body">
+                                  <h5 class="card-title">Produit 6</h5>
+                                  <p class="card-text" data-prix="6" data-note="3.7">6€ <br>Note : 3,7</p>
+                                  <button class="btn shadow-bottom-right addToCartBtn" data-product-id="6" data-product-name="Produit 6" data-product-price="6"data-product-image="images du projet fil rouge Choco-Pap/images/produit6.jpg">Ajouter au panier</button>
+                                </div>
+                              </div>
+                              <div class="card col-12 col-md-6 col-lg-3 text-center" data-categorie="Tous Milk Nuts Liqueur">
+                                <img src="images du projet fil rouge Choco-Pap/images/produit7.jpg" class="card-img-top mt-3" alt="Produit 7">
+                                <div class="card-body">
+                                  <h5 class="card-title">Produit 7</h5>
+                                  <p class="card-text" data-prix="7" data-note="4.3">7€ <br>Note : 4,3</p>
+                                  <button class="btn shadow-bottom-right addToCartBtn" data-product-id="7" data-product-name="Produit 7" data-product-price="7"data-product-image="images du projet fil rouge Choco-Pap/images/produit7.jpg">Ajouter au panier</button>
+                                </div>
+                              </div>
+                              <div class="card col-12 col-md-6 col-lg-3 text-center" data-categorie="Tous Black">
+                                <img src="images du projet fil rouge Choco-Pap/images/produit8.jpg" class="card-img-top mt-3" alt="Produit 8">
+                                <div class="card-body">
+                                  <h5 class="card-title">Produit 8</h5>
+                                  <p class="card-text" data-prix="8" data-note="2.9">8€ <br>Note : 2,9</p>
+                                  <button class="btn shadow-bottom-right addToCartBtn" data-product-id="8" data-product-name="Produit 8" data-product-price="8"data-product-image="images du projet fil rouge Choco-Pap/images/produit8.jpg">Ajouter au panier</button>
+                                </div>
+                              </div>
+                              <div class="card col-12 col-md-6 col-lg-3 text-center" data-categorie="Tous Milk Nuts">
+                                <img src="images du projet fil rouge Choco-Pap/images/produit9.jpg" class="card-img-top mt-3" alt="Produit 9">
+                                <div class="card-body">
+                                  <h5 class="card-title">Produit 9</h5>
+                                  <p class="card-text" data-prix="9" data-note="4.5">9€ <br>Note : 4,5</p>
+                                  <button class="btn shadow-bottom-right addToCartBtn" data-product-id="9" data-product-name="Produit 9" data-product-price="9"data-product-image="images du projet fil rouge Choco-Pap/images/produit9.jpg">Ajouter au panier</button>
+                                </div>
+                              </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </div>
+        <br>
+    </section>
+    <footer class="text-white container-fluid pt-3">
+        <div class="row g-8">
+            <div class="col-12 col-sm-6 col-md-4">
+                <h3>Choco Pap</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero sunt eaque ad necessitatibus
+                    corrupti. Quos?</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4">
+                <h3>Contact</h3>
+                <p>Adresse : 51 rue du chocolat 75000 Paris </p>
+                <p>Téléphone: 01 23 45 67 89 </p>
+                <p>Horaires: 9h00-17h00 du Lundi au vendredi</p>
+            </div>
+            <div class="d-flex col-12 col-sm-6 col-md-4 align-items-center" id="logosFooter">
+                <img src="images du projet fil rouge Choco-Pap/images/fb.png" alt="Facebook"
+                    class="img-fluid col-2 logosFooter offset-2">
+                <img src="images du projet fil rouge Choco-Pap/images/instagram.jpeg" alt="Instagram"
+                    class="img-fluid col-2 offset-1 logosFooter">
+                <img src="images du projet fil rouge Choco-Pap/images/twitter.png" alt="Twitter"
+                    class="img-fluid col-2 offset-1 logosFooter">
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
